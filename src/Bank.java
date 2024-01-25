@@ -23,7 +23,15 @@ public class Bank implements IBank {
 
         if (account != null) {
             if (account.getCurrentBalance() >= 0) {
-                accounts.remove(account);
+                // Close the account based on its type
+                if (account instanceof BasicAccount) {
+                    ((BasicAccount) account).close();
+                } else if (account instanceof StandardAccount) {
+                    ((StandardAccount) account).close();
+                } else if (account instanceof PremiumAccount) {
+                    ((PremiumAccount) account).close();
+                }
+                accounts.remove(account); // Remove the account from the bank's list
                 System.out.println("Account " + accountNumber + " closed successfully.");
             } else {
                 System.out.println("Account " + accountNumber + " cannot be closed because it has debt.");
@@ -32,6 +40,7 @@ public class Bank implements IBank {
             System.out.println("Account not found.");
         }
     }
+
 
     @Override
     public List<IAccount> getAllAccounts() {
