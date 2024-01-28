@@ -12,14 +12,13 @@ public class PremiumAccount implements IAccount {
     public void close() {
         this.isClosed = true; // Added method to close the account
     }
-    
+
     @Override
     public void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
         }
     }
-
     @Override
     public double withdraw(double amount) {
         if (amount > 0 && amount <= balance) {

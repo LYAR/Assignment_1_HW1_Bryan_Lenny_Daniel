@@ -17,7 +17,7 @@ public class BasicAccount implements IAccount {
 
     @Override
     public void deposit(double amount) {
-        if (!isClosed && amount > 0) { // Check if the account is not closed
+        if (amount > 0) {
             balance += amount;
         }
     }

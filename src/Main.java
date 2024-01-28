@@ -4,7 +4,7 @@ public class Main {
         Bank bank = new Bank();
 
         // Instantiate Account Objects
-        StandardAccount standardAccount = new StandardAccount(1, -500.0);
+        StandardAccount standardAccount = new StandardAccount(1, -100.0);
         BasicAccount basicAccount = new BasicAccount(2, 200.0);
         PremiumAccount premiumAccount = new PremiumAccount(3);
 
@@ -22,8 +22,8 @@ public class Main {
         System.out.println("Attempted to withdraw 2000.0 from StandardAccount, Actual amount withdrawn: " + withdrawnAmount);
 
         // 2. Testing Deposit of Negative Amount
-        standardAccount.deposit(-500.0);
-        System.out.println("Attempted to deposit -500.0 into StandardAccount, Balance after deposit: " + standardAccount.getCurrentBalance());
+        standardAccount.deposit(500.0);
+        System.out.println("Attempted to deposit 500.0 into StandardAccount, Balance after deposit: " + standardAccount.getCurrentBalance());
 
         // 3. Testing Account Closure with Debt
         standardAccount.withdraw(2000.0); // Assuming this sets the account into debt
